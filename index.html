@@ -413,6 +413,17 @@ p.lead::first-letter {
    its sides and the work in mats above and below — a gallery mount rather
    than a cut. Nothing is lost from either picture.
 
+   The mat takes the card's own surface, not a darker tone. It was #0A0A08 —
+   a literal belonging to no palette, and darker than --bg (#0D0D0B), so the
+   mat was measurably indistinguishable from the page behind the card: 1.02:1
+   against the page, where the card itself sits at 1.10:1. Wherever a mat
+   reached the card's edge the card dissolved into the background and its 14px
+   corner stopped being visible, so the letterbox read as a hole punched
+   through to the page rather than a mount. var(--card) makes the mat
+   continuous with the card, which both restores the edge and lets the
+   `overflow: hidden` on .card clip the mat to the same corner as everything
+   else — no border-radius on the image required.
+
    Scoped to the two-column breakpoint on purpose. Below 700px the pair stacks
    into one column, so there is no partner to stand level with and the mats
    would be paid for nothing — each image goes back to the frame cut for its
@@ -422,7 +433,7 @@ p.lead::first-letter {
   .card-pair .card-portrait-hero {
     aspect-ratio: 1 / 1;
     object-fit: contain;
-    background: #0A0A08;
+    background: var(--card);
   }
 }
 
