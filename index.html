@@ -298,6 +298,14 @@ p.lead::first-letter {
   }
   .card.wide-media > .card-fig {
     grid-column: 1; grid-row: 1 / span 2;
+    /* Centred for the same reason the body below is: the figure spans both rows,
+       so when the *text* column is what sets the row height (a long caption
+       beside a flat landscape image) a top-pinned figure leaves the whole
+       surplus as one gap under the picture -- measured at 207px on a 394px card,
+       which reads as a broken full-bleed rather than an inset. `align-items:
+       start` on the grid is load-bearing for the tag/body rows, so this is
+       scoped to the figure rather than flipping the container. */
+    align-self: center;
   }
   .card.wide-media > .card-fig > img {
     width: 100%;
